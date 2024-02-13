@@ -10,18 +10,11 @@ import {
   Route
 } from 'react-router-dom'
 
-import Rotas from './routes'
+const Rotas = () => (
+  <Routes>
+    <Route path="/" element={<Home />} />
+    <Route path="/categories" element={<Categories />} />
+  </Routes>
+)
 
-function App() {
-  return (
-    <BrowserRouter>
-      <GlobalCss />
-      <div className="container">
-        <Header />
-      </div>
-      <Rotas />
-    </BrowserRouter>
-  )
-}
-
-export default App
+export default Rotas
