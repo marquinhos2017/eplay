@@ -3,7 +3,7 @@ import Hero from '../../components/Hero'
 import Section from '../../components/Section'
 
 import Gallery from '../../components/Gallery'
-
+import residentEvil from '../../assets/images/resident.png'
 const Product = () => {
   const { id } = useParams()
 
@@ -32,7 +32,7 @@ const Product = () => {
           praesentium optio excepturi, iste ab facere.
         </p>
       </Section>
-      <Gallery />
+      <Gallery name="logo teste" defaultCover={residentEvil} />
     </>
   )
 }
