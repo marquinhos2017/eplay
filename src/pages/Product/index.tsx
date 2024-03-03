@@ -4,35 +4,41 @@ import Section from '../../components/Section'
 
 import Gallery from '../../components/Gallery'
 import residentEvil from '../../assets/images/resident.png'
+import { useEffect, useState } from 'react'
+import { Game } from '../Home'
 const Product = () => {
   const { id } = useParams()
+  const [game, setGame] = useState<Game>()
+
+  useEffect(() => {
+    fetch(`https://fake-api-tau.vercel.app/api/eplay/jogos/${id}`)
+      .then((res) => res.json())
+      .then((res) => setGame(res))
+  }, [id])
+  if (!game) {
+    return <h3>Carregando...</h3>
+  }
 
   return (
     <>
-      <Hero />
+      <Hero game={game} />
       <Section title="Sobre o jogo" background="black">
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus
-          dolore harum est nemo, dolorem veritatis ab unde quo ducimus magni
-          repudiandae provident vero, doloribus eos dolor sequi molestias quasi
-          enim?. Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-          Eveniet vel consequatur natus ea, blanditiis provident? Provident
-          temporibus id, accusantium consectetur voluptates, natus velit quo
-          praesentium optio excepturi, iste ab facere.
-        </p>
+        <p>{game.description}</p>
       </Section>
       <Section title="Mais detalhes" background="gray">
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus
-          dolore harum est nemo, dolorem veritatis ab unde quo ducimus magni
-          repudiandae provident vero, doloribus eos dolor sequi molestias quasi
-          enim?. Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-          Eveniet vel consequatur natus ea, blanditiis provident? Provident
-          temporibus id, accusantium consectetur voluptates, natus velit quo
-          praesentium optio excepturi, iste ab facere.
+          <b>Plataforma: </b> {game.details.system}
+          <br />
+          <b>Desenvolvedor: </b> {game.details.developer} <br />
+          <b>Editora: </b> {game.details.publisher} <br />
+          <b>Idiomas: </b> {game.details.languages.join(', ')}
         </p>
       </Section>
-      <Gallery name="logo teste" defaultCover={residentEvil} />
+      <Gallery
+        name={game.name}
+        defaultCover={game.media.cover}
+        items={game.media.gallery}
+      />
     </>
   )
 }
