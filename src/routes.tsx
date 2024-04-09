@@ -3,6 +3,7 @@ import Categories from './pages/Categories'
 import Home from './pages/Home'
 import Product from './pages/Product'
 import { GlobalCss } from './styles'
+import Checkout from './pages/Checkout'
 import {
   createBrowserRouter,
   RouterProvider,
@@ -16,6 +17,7 @@ const Rotas = () => (
     <Route path="/" element={<Home />} />
     <Route path="/categories" element={<Categories />} />
     <Route path="/product/:id" element={<Product />} />
+    <Route path="/checkout" element={<Checkout />} />
   </Routes>
 )
 
