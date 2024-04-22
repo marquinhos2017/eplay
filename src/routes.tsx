@@ -1,16 +1,9 @@
-import Header from './components/Header'
 import Categories from './pages/Categories'
 import Home from './pages/Home'
 import Product from './pages/Product'
-import { GlobalCss } from './styles'
+
 import Checkout from './pages/Checkout'
-import {
-  createBrowserRouter,
-  RouterProvider,
-  BrowserRouter,
-  Routes,
-  Route
-} from 'react-router-dom'
+import { Routes, Route } from 'react-router-dom'
 
 const Rotas = () => (
   <Routes>

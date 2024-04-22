@@ -1,4 +1,3 @@
-import banner from '../../assets/images/fundo_hogwarts.png'
 import { Game } from '../../pages/Home'
 import Button from '../Button'
 import Tag from '../Tag'

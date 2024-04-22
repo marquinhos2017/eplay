@@ -23,6 +23,7 @@ export const Action = styled.div`
 
 export const Item = styled.li`
   position: relative;
+  cursor: zoom-in;
 
   // Filho direto do li
   > img {

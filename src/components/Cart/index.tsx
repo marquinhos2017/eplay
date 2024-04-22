@@ -1,3 +1,6 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
+import { useDispatch, useSelector } from 'react-redux'
+
 import Button from '../Button'
 import {
   CartContainer,
@@ -7,12 +10,12 @@ import {
   Quantity,
   SideBar
 } from './styles'
-import starWars from '../../assets/images/star_wars.png'
 import Tag from '../Tag'
-import { useDispatch, useSelector } from 'react-redux'
+
 import { RootReducer } from '../../store'
 import { close, remove } from '../../store/reducers/cart'
 import { formataPreco } from '../ProductsList'
+
 const Cart = () => {
   const { isOpen, items } = useSelector((state: RootReducer) => state.cart)
   const dispatch = useDispatch()

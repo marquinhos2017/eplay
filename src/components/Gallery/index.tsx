@@ -1,27 +1,11 @@
 import Section from '../Section'
-import spiderman from '../../assets/images/banner-homem-aranha.png'
-import hogarts from '../../assets/images/fundo_hogwarts.png'
+
 import { Item, Items, Action, Modal, ModalContent } from './styles'
 import zoom from '../../assets/images/zoom.png'
 import play from '../../assets/images/play.png'
 import close from '../../assets/images/fechar.png'
 import { useState } from 'react'
 import { GalleryItem } from '../../pages/Home'
-
-const mock: GalleryItem[] = [
-  {
-    type: 'image',
-    url: spiderman
-  },
-  {
-    type: 'image',
-    url: hogarts
-  },
-  {
-    type: 'video',
-    url: 'https://www.youtube.com/embed/uHGShqcAHlQ?si=MR1EYBrof3jJtAeR'
-  }
-]
 
 type Props = {
   defaultCover: string
@@ -38,8 +22,6 @@ const Gallery = ({ defaultCover, name, items }: Props) => {
     type: 'image',
     url: ''
   })
-  const [modalEstaberto, setModalEstaAberto] = useState(false)
-  const [modalUrl, setModalUrl] = useState('')
 
   const getMediaCover = (item: GalleryItem) => {
     if (item.type === 'image') return item.url
