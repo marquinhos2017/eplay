@@ -5,11 +5,12 @@ import Button from '../Button'
 
 import { useGetFeaturedGameQuery } from '../../services/api'
 import { parseToBrl } from '../../utils'
+import Loader from '../loader'
 const Banner = () => {
   const { data: game } = useGetFeaturedGameQuery()
 
   if (!game) {
-    return <h3>Carregando...</h3>
+    return <Loader />
   }
 
   return (
